@@ -1,4 +1,4 @@
-const CACHE='lopsimulator-v1-1-pwa-1';
+const CACHE='lopsimulator-v1-2-pwa-1';
 const ASSETS=['./index.html','./lopsimulator.webmanifest','./apple-touch-icon.png','./lopsimulator-192.png','./lopsimulator-512.png','./lopsimulator-favicon.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('lopsimulator-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
